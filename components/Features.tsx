@@ -1,7 +1,8 @@
 "use client";
 import { useTranslations } from "next-intl";
+import type { ReactElement } from "react";
 
-const icons: Record<string, JSX.Element> = {
+const icons: Record<string, ReactElement> = {
   wms: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
       <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
