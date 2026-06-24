@@ -12,7 +12,7 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt="DFlowERP"
-                className="h-6 w-auto"
+                style={{ height: "28px", width: "auto" }}
               />
             </div>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)", maxWidth: "200px" }}>{t("tagline")}</p>

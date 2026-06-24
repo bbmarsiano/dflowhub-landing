@@ -30,7 +30,7 @@ export default function Nav() {
             <img
               src="/logo.png"
               alt="DFlowERP"
-              className="h-7 w-auto"
+              style={{ height: "32px", width: "auto" }}
             />
           </a>
           <div className="flex items-center gap-6">
