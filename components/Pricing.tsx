@@ -2,6 +2,7 @@
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import TrialModal from "./TrialModal";
+import CheckoutModal from "./CheckoutModal";
 
 const Check = () => (
   <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4 flex-shrink-0">
@@ -10,9 +11,23 @@ const Check = () => (
   </svg>
 );
 
+const deliveryText: Record<string, string> = {
+  monthly: "След успешно плащане ще получите имейл с лицензен ключ и инструкции за инсталация. Абонаментът се подновява автоматично всеки месец и може да бъде анулиран по всяко време.",
+  annual: "След успешно плащане ще получите имейл с лицензен ключ и инструкции за инсталация. Абонаментът покрива 12 месеца и може да бъде анулиран преди следващото подновяване.",
+  lifetime: "След еднократното плащане ще получите имейл с постоянен лицензен ключ. Включва всички бъдещи обновления без допълнителни такси — платете веднъж, използвайте завинаги.",
+};
+
 export default function Pricing() {
   const t = useTranslations("pricing");
-  const [modalOpen, setModalOpen] = useState(false);
+  const [trialOpen, setTrialOpen] = useState(false);
+  const [checkoutPlan, setCheckoutPlan] = useState<{
+    name: string;
+    price: string;
+    period: string;
+    link: string;
+    features: string[];
+    delivery: string;
+  } | null>(null);
 
   const plans = [
     { key: "trial", link: null, featured: false, isTrial: true },
@@ -50,7 +65,7 @@ export default function Pricing() {
                   }}
                 >
                   {key === "annual" && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full" style={{ background: "white", color: "var(--purple)", boxShadow: "0 2px 8px rgba(124,58,237,0.2)" }}>
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap" style={{ background: "white", color: "var(--purple)", boxShadow: "0 2px 8px rgba(124,58,237,0.2)" }}>
                       {t("plans.annual.badge")}
                     </div>
                   )}
@@ -80,22 +95,27 @@ export default function Pricing() {
                   </ul>
                   {isTrial ? (
                     <button
-                      onClick={() => setModalOpen(true)}
+                      onClick={() => setTrialOpen(true)}
                       className="w-full h-10 rounded-xl text-sm font-semibold transition-all hover:opacity-90 active:scale-95"
                       style={{ background: "var(--purple-faint)", color: "var(--purple)", border: "1px solid var(--purple-dim)" }}
                     >
                       {t(`plans.${key}.cta`)}
                     </button>
                   ) : (
-                    <a
-                      href={link!}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full h-10 rounded-xl text-sm font-semibold transition-all hover:opacity-90 active:scale-95 flex items-center justify-center"
+                    <button
+                      onClick={() => setCheckoutPlan({
+                        name: t(`plans.${key}.name`),
+                        price: t(`plans.${key}.price`),
+                        period: t(`plans.${key}.period`),
+                        link: link!,
+                        features,
+                        delivery: deliveryText[key],
+                      })}
+                      className="w-full h-10 rounded-xl text-sm font-semibold transition-all hover:opacity-90 active:scale-95"
                       style={featured ? { background: "white", color: "var(--purple)" } : { background: "var(--purple)", color: "white" }}
                     >
                       {t(`plans.${key}.cta`)}
-                    </a>
+                    </button>
                   )}
                 </div>
               );
@@ -103,7 +123,13 @@ export default function Pricing() {
           </div>
         </div>
       </section>
-      <TrialModal open={modalOpen} onClose={() => setModalOpen(false)} />
+
+      <TrialModal open={trialOpen} onClose={() => setTrialOpen(false)} />
+      <CheckoutModal
+        open={!!checkoutPlan}
+        plan={checkoutPlan}
+        onClose={() => setCheckoutPlan(null)}
+      />
     </>
   );
 }
