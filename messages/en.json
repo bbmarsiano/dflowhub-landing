@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "logo": "DFlowERP",
+    "cta": "Start for free"
+  },
+  "hero": {
+    "badge": "Self-hosted ERP for SMBs",
+    "title": "Run your business without compromise",
+    "subtitle": "A modular ERP system installed on your own server. Full control over your data, no vendor lock-in.",
+    "cta_primary": "Start free — 14 days",
+    "cta_secondary": "On-premise solutions →"
+  },
+  "features": {
+    "badge": "Modules",
+    "title": "Everything you need",
+    "subtitle": "Five specialized modules working together as one.",
+    "modules": {
+      "wms": { "name": "WMS", "desc": "Warehouse Management", "detail": "Real-time inventory, locations, receiving and dispatch management." },
+      "scm": { "name": "SCM", "desc": "Supply Chain", "detail": "Supplier orders, delivery tracking and contract management." },
+      "mes": { "name": "MES", "desc": "Manufacturing", "detail": "Production job planning, work centers and material flow tracking." },
+      "pos": { "name": "POS", "desc": "Point of Sale", "detail": "Cash register with fiscal printer, barcode scanner and WMS sync." },
+      "backup": { "name": "Backup", "desc": "Data Backup", "detail": "Automated backups, encryption and one-click restore." }
+    }
+  },
+  "pricing": {
+    "badge": "Pricing",
+    "title": "Transparent pricing, no surprises",
+    "subtitle": "Choose the plan that fits your business. All plans include full access to all modules.",
+    "plans": {
+      "trial": {
+        "name": "Trial", "price": "Free", "period": "14 days",
+        "desc": "Try all modules with no commitment.",
+        "cta": "Start for free",
+        "features": ["All 5 modules", "Up to 3 users", "Technical support", "No credit card"]
+      },
+      "monthly": {
+        "name": "Monthly", "price": "€49", "period": "/ month",
+        "desc": "Flexible plan with monthly billing.",
+        "cta": "Subscribe",
+        "features": ["All 5 modules", "Unlimited users", "Priority support", "Automatic updates"]
+      },
+      "annual": {
+        "name": "Annual", "price": "€490", "period": "/ year",
+        "badge": "Save 17%",
+        "desc": "The most popular choice for established businesses.",
+        "cta": "Subscribe",
+        "features": ["All 5 modules", "Unlimited users", "Priority support", "Automatic updates"]
+      },
+      "lifetime": {
+        "name": "Lifetime", "price": "€1,490", "period": "one-time",
+        "desc": "Pay once, use forever.",
+        "cta": "Buy license",
+        "features": ["All 5 modules", "Unlimited users", "Lifetime updates", "Premium support"]
+      }
+    }
+  },
+  "onpremise": {
+    "badge": "Enterprise",
+    "title": "On-premise installations",
+    "subtitle": "For corporate installations on your own server with custom configuration, SLA guarantees and team training.",
+    "contact": "Contact us at",
+    "email": "sales@dflowhub.com"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently asked questions",
+    "items": [
+      { "q": "What is DFlowERP?", "a": "DFlowERP is a modular ERP system designed specifically for small and medium businesses. It covers warehouse management, supply chain, manufacturing, POS and data backup in one integrated solution." },
+      { "q": "Is the system self-hosted?", "a": "Yes. DFlowERP is installed on your own server or private cloud. You control your data — no one else has access to it." },
+      { "q": "What are the system requirements?", "a": "Minimum: Linux server (Ubuntu 22.04+), 4 CPU cores, 8 GB RAM, 50 GB SSD. For production workloads we recommend 8 cores and 16 GB RAM. Windows Server is also supported." },
+      { "q": "Can I change my plan?", "a": "Yes. You can switch from Monthly to Annual at any time — the difference is deducted proportionally. The Lifetime license requires no renewal." },
+      { "q": "Is my data secure?", "a": "Your data stays entirely with you, on your own infrastructure. The Backup module provides encrypted backups. We do not send any data to external servers." },
+      { "q": "Is there technical support?", "a": "All paid plans include email technical support with a 24-hour response time. Lifetime and Enterprise plans receive priority support within 4 hours." },
+      { "q": "How does the trial period work?", "a": "Enter your email and you'll receive a download link and installation instructions. The trial version is fully functional for 14 days — no credit card required." },
+      { "q": "What is a Lifetime license?", "a": "A one-time payment of €1,490 that provides lifetime access to all modules and future updates. Ideal for businesses that want predictable costs without monthly subscriptions." }
+    ]
+  },
+  "modal": {
+    "title": "Start your free trial",
+    "subtitle": "14 days full access. No credit card.",
+    "name": "Your name",
+    "company": "Company",
+    "email": "Email address",
+    "submit": "Send",
+    "submitting": "Sending...",
+    "success": "Check your email! We've sent installation instructions.",
+    "error": "Something went wrong. Please try again.",
+    "close": "Close"
+  },
+  "footer": {
+    "tagline": "Modular ERP for small and medium businesses.",
+    "product": "Product",
+    "features": "Modules",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "onpremise": "On-premise",
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact",
+    "sales": "sales@dflowhub.com",
+    "copyright": "© 2025 DFlowERP. All rights reserved."
+  }
+}
