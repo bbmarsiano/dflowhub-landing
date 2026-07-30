@@ -1,11 +1,19 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ProductSwitcher from "./ProductSwitcher";
 import TrialModal from "./TrialModal";
+import type { Product } from "@/lib/product";
 
-export default function Nav() {
+interface Props {
+  activeProduct?: Product;
+}
+
+export default function Nav({ activeProduct }: Props) {
   const t = useTranslations("nav");
+  const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -26,26 +34,35 @@ export default function Nav() {
         }}
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#" className="flex items-center">
+          <Link href={`/${locale}`} className="flex items-center">
             <img
               src="/logo.png"
-              alt="DFlowERP"
+              alt="DFlowHub"
               style={{ height: "32px", width: "auto" }}
             />
-          </a>
-          <div className="flex items-center gap-6">
+          </Link>
+          <div className="flex items-center gap-4 sm:gap-6">
+            {activeProduct && <ProductSwitcher active={activeProduct} />}
             <LanguageSwitcher />
-            <button
-              onClick={() => setModalOpen(true)}
-              className="hidden sm:flex items-center h-9 px-4 rounded-lg text-sm font-medium text-white transition-all hover:opacity-90 active:scale-95"
-              style={{ background: "var(--purple)" }}
-            >
-              {t("cta")}
-            </button>
+            {activeProduct && (
+              <button
+                onClick={() => setModalOpen(true)}
+                className="hidden sm:flex items-center h-9 px-4 rounded-lg text-sm font-medium text-white transition-all hover:opacity-90 active:scale-95"
+                style={{ background: "var(--purple)" }}
+              >
+                {t("cta")}
+              </button>
+            )}
           </div>
         </div>
       </nav>
-      <TrialModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      {activeProduct && (
+        <TrialModal
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+          product={activeProduct}
+        />
+      )}
     </>
   );
 }

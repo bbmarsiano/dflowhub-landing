@@ -1,8 +1,11 @@
 "use client";
 import { useTranslations } from "next-intl";
+import type { Product } from "@/lib/product";
 
-export default function OnPremise() {
-  const t = useTranslations("onpremise");
+export default function OnPremise({ product }: { product: Product }) {
+  const t = useTranslations(`${product}.onpremise`);
+  const benefits = t.raw("benefits") as { icon: string; title: string; desc: string }[];
+
   return (
     <section id="onpremise" className="py-24" style={{ background: "var(--purple-faint)" }}>
       <div className="max-w-4xl mx-auto px-6 text-center">
@@ -28,11 +31,7 @@ export default function OnPremise() {
           </span>
         </div>
         <div className="mt-12 grid sm:grid-cols-3 gap-6 text-left">
-          {[
-            { icon: "🔒", title: "Персонализирана конфигурация", desc: "Настройваме системата спрямо вашите бизнес процеси." },
-            { icon: "📋", title: "SLA гаранции", desc: "Договорени времена за реакция и наличност на системата." },
-            { icon: "🎓", title: "Обучение на екипа", desc: "Обучаваме вашия екип да използва всички модули ефективно." },
-          ].map(({ icon, title, desc }) => (
+          {benefits.map(({ icon, title, desc }) => (
             <div key={title} className="bg-white rounded-xl p-5" style={{ border: "1px solid var(--border)" }}>
               <div className="w-9 h-9 rounded-lg flex items-center justify-center mb-3 text-lg" style={{ background: "var(--purple-faint)" }}>{icon}</div>
               <h3 className="text-sm font-semibold mb-1" style={{ color: "var(--text)" }}>{title}</h3>

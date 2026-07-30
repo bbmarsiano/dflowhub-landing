@@ -8,9 +8,10 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 interface Props {
   open: boolean;
   onClose: () => void;
+  product?: string;
 }
 
-export default function TrialModal({ open, onClose }: Props) {
+export default function TrialModal({ open, onClose, product }: Props) {
   const t = useTranslations("modal");
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
@@ -33,13 +34,15 @@ export default function TrialModal({ open, onClose }: Props) {
     if (!email || !name) return;
     setStatus("loading");
     try {
+      const body: Record<string, string> = { email, name, company };
+      if (product) body.product = product;
       const res = await fetch(SUPABASE_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
         },
-        body: JSON.stringify({ email, name, company }),
+        body: JSON.stringify(body),
       });
       setStatus(res.ok ? "success" : "error");
     } catch {

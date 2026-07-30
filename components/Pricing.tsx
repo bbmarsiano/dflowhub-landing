@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import TrialModal from "./TrialModal";
 import CheckoutModal, { type BillingType } from "./CheckoutModal";
+import type { Product } from "@/lib/product";
 
 const Check = () => (
   <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4 flex-shrink-0">
@@ -17,8 +18,8 @@ const paidPlans = [
   { key: "lifetime" as const, featured: false },
 ];
 
-export default function Pricing() {
-  const t = useTranslations("pricing");
+export default function Pricing({ product }: { product: Product }) {
+  const t = useTranslations(`${product}.pricing`);
   const [trialOpen, setTrialOpen] = useState(false);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [billingType, setBillingType] = useState<BillingType>("monthly");
@@ -158,10 +159,10 @@ export default function Pricing() {
         </div>
       </section>
 
-      <TrialModal open={trialOpen} onClose={() => setTrialOpen(false)} />
+      <TrialModal open={trialOpen} onClose={() => setTrialOpen(false)} product={product} />
       <CheckoutModal
         open={checkoutOpen}
-        product="erp"
+        product={product}
         billingType={billingType}
         onClose={() => setCheckoutOpen(false)}
       />

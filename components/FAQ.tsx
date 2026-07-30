@@ -1,9 +1,10 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import type { Product } from "@/lib/product";
 
-export default function FAQ() {
-  const t = useTranslations("faq");
+export default function FAQ({ product }: { product: Product }) {
+  const t = useTranslations(`${product}.faq`);
   const [open, setOpen] = useState<number | null>(0);
   const items = t.raw("items") as { q: string; a: string }[];
 
@@ -35,7 +36,7 @@ export default function FAQ() {
                   <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </button>
-              <div style={{ maxHeight: open === i ? "200px" : "0", overflow: "hidden", transition: "max-height 0.25s ease" }}>
+              <div style={{ maxHeight: open === i ? "280px" : "0", overflow: "hidden", transition: "max-height 0.25s ease" }}>
                 <p className="px-6 pb-5 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
                   {item.a}
                 </p>

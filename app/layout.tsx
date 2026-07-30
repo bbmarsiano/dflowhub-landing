@@ -4,8 +4,8 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "DFlowERP — Модулна ERP система за малкия бизнес",
-  description: "Self-hosted ERP система с WMS, SCM, MES, POS и Backup модули.",
+  title: "DFlowHub — Self-hosted ERP и CRM",
+  description: "Модулни self-hosted решения за бизнеса: DFlowERP и DFlowCRM.",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",

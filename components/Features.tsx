@@ -1,6 +1,8 @@
 "use client";
 import { useTranslations } from "next-intl";
 import type { ReactElement } from "react";
+import type { Product } from "@/lib/product";
+import { productModules } from "@/lib/product";
 
 const icons: Record<string, ReactElement> = {
   wms: (
@@ -36,12 +38,38 @@ const icons: Record<string, ReactElement> = {
       <line x1="12" y1="3" x2="12" y2="15"/>
     </svg>
   ),
+  sales: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+    </svg>
+  ),
+  service: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+    </svg>
+  ),
+  analytics: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <path d="M18 20V10M12 20V4M6 20v-6"/>
+    </svg>
+  ),
+  marketing: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+    </svg>
+  ),
+  integrations: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+      <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+    </svg>
+  ),
 };
 
-const moduleKeys = ["wms", "scm", "mes", "pos", "backup"] as const;
+export default function Features({ product }: { product: Product }) {
+  const t = useTranslations(`${product}.features`);
+  const moduleKeys = productModules(product);
 
-export default function Features() {
-  const t = useTranslations("features");
   return (
     <section id="features" className="py-24" style={{ background: "var(--purple-faint)" }}>
       <div className="max-w-6xl mx-auto px-6">
@@ -80,10 +108,10 @@ export default function Features() {
           ))}
           <div className="relative rounded-2xl p-7 flex flex-col justify-between overflow-hidden" style={{ background: "var(--purple)" }}>
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "#a78bfa" }}>Интеграция</p>
-              <h3 className="text-base font-semibold mb-2 text-white">Всички модули работят заедно</h3>
+              <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "#a78bfa" }}>{t("integration.badge")}</p>
+              <h3 className="text-base font-semibold mb-2 text-white">{t("integration.title")}</h3>
               <p className="text-sm leading-relaxed" style={{ color: "#c4b5fd" }}>
-                Данните от WMS захранват SCM, MES синхронизира с WMS, POS отразява наличностите в реално време.
+                {t("integration.detail")}
               </p>
             </div>
             <div className="mt-5 flex gap-1.5 flex-wrap">

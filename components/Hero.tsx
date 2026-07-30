@@ -2,6 +2,7 @@
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import TrialModal from "./TrialModal";
+import type { Product } from "@/lib/product";
 
 function DashboardMockup() {
   return (
@@ -100,8 +101,8 @@ function DashboardMockup() {
   );
 }
 
-export default function Hero() {
-  const t = useTranslations("hero");
+export default function Hero({ product }: { product: Product }) {
+  const t = useTranslations(`${product}.hero`);
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -148,7 +149,8 @@ export default function Hero() {
                   ))}
                 </div>
                 <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-                  <span className="font-semibold" style={{ color: "var(--text)" }}>120+</span> компании използват DFlowERP
+                  <span className="font-semibold" style={{ color: "var(--text)" }}>120+</span>{" "}
+                  {t("social_proof")}
                 </p>
               </div>
             </div>
@@ -164,13 +166,13 @@ export default function Hero() {
                 style={{ background: "white", border: "1px solid var(--border)" }}
               >
                 <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-sm font-medium" style={{ color: "var(--text)" }}>On-premise · Вашите данни</span>
+                <span className="text-sm font-medium" style={{ color: "var(--text)" }}>{t("badge_overlay")}</span>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <TrialModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <TrialModal open={modalOpen} onClose={() => setModalOpen(false)} product={product} />
     </>
   );
 }

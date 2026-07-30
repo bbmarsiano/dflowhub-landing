@@ -1,28 +1,57 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import Link from "next/link";
+import type { Product } from "@/lib/product";
 
-export default function Footer() {
+interface Props {
+  activeProduct?: Product;
+}
+
+export default function Footer({ activeProduct }: Props) {
   const t = useTranslations("footer");
+  const locale = useLocale();
+
   return (
     <footer className="border-t py-14" style={{ background: "var(--bg)", borderColor: "var(--border)" }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div className="col-span-2 lg:col-span-1">
             <div className="mb-4">
-              <img
-                src="/logo.png"
-                alt="DFlowERP"
-                style={{ height: "28px", width: "auto" }}
-              />
+              <Link href={`/${locale}`}>
+                <img
+                  src="/logo.png"
+                  alt="DFlowHub"
+                  style={{ height: "28px", width: "auto" }}
+                />
+              </Link>
             </div>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)", maxWidth: "200px" }}>{t("tagline")}</p>
           </div>
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: "var(--text)" }}>{t("product")}</p>
+            <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: "var(--text)" }}>
+              {activeProduct ? t("product") : t("products")}
+            </p>
             <ul className="space-y-3">
-              {[["#features", t("features")], ["#pricing", t("pricing")], ["#faq", t("faq")], ["#onpremise", t("onpremise")]].map(([href, label]) => (
-                <li key={href}><a href={href} className="text-sm transition-colors hover:text-gray-900" style={{ color: "var(--text-muted)" }}>{label}</a></li>
-              ))}
+              {activeProduct ? (
+                [["#features", t("features")], ["#pricing", t("pricing")], ["#faq", t("faq")], ["#onpremise", t("onpremise")]].map(([href, label]) => (
+                  <li key={href}>
+                    <a href={href} className="text-sm transition-colors hover:text-gray-900" style={{ color: "var(--text-muted)" }}>{label}</a>
+                  </li>
+                ))
+              ) : (
+                <>
+                  <li>
+                    <Link href={`/${locale}/erp`} className="text-sm transition-colors hover:text-gray-900" style={{ color: "var(--text-muted)" }}>
+                      {t("erp")}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`/${locale}/crm`} className="text-sm transition-colors hover:text-gray-900" style={{ color: "var(--text-muted)" }}>
+                      {t("crm")}
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           <div>
