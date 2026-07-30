@@ -87,6 +87,27 @@
     "error": "Something went wrong. Please try again.",
     "close": "Close"
   },
+  "checkout": {
+    "title": "Continue to payment",
+    "subtitle": "Enter your company details to create a Stripe checkout session.",
+    "company": "Company / tenant name",
+    "email": "Email address",
+    "submit": "Continue to payment",
+    "submitting": "Creating session...",
+    "error": "Something went wrong. Please try again.",
+    "invalidEmail": "Please enter a valid email address.",
+    "stripeNote": "You will be redirected to Stripe for secure payment",
+    "close": "Close"
+  },
+  "checkoutResult": {
+    "successTitle": "Purchase successful",
+    "successBody": "Thank you for your purchase! Check your email (including the spam folder) for your license key and installation instructions.",
+    "cancelTitle": "Payment cancelled",
+    "cancelBody": "Payment was cancelled. You can try again whenever you're ready.",
+    "backHome": "Back to homepage",
+    "backPricing": "Back to pricing",
+    "sessionId": "Session ID"
+  },
   "footer": {
     "tagline": "Modular ERP for small and medium businesses.",
     "product": "Product",
