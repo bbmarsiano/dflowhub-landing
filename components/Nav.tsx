@@ -40,6 +40,13 @@ export default function Nav({ activeProduct }: Props) {
           </Link>
           <div className="flex items-center gap-4 sm:gap-6">
             {activeProduct && <ProductSwitcher active={activeProduct} />}
+            <Link
+              href={`/${locale}/blog`}
+              className="hidden sm:inline text-sm font-medium transition-colors hover:opacity-80"
+              style={{ color: "var(--text-muted)" }}
+            >
+              {t("blog")}
+            </Link>
             <LanguageSwitcher />
             {activeProduct && (
               <button

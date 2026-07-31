@@ -1,6 +1,7 @@
 {
   "nav": {
-    "cta": "Start for free"
+    "cta": "Start for free",
+    "blog": "Blog"
   },
   "productSwitcher": {
     "erp": "DFlowERP",
@@ -20,6 +21,13 @@
       "pitch": "Sales, customer service, analytics and marketing",
       "cta": "Go to DFlowCRM →"
     }
+  },
+  "blog": {
+    "badge": "Blog",
+    "title": "Blog",
+    "subtitle": "News, guides and ideas for self-hosted ERP and CRM.",
+    "empty": "No posts in this category.",
+    "minRead": "min read"
   },
   "erp": {
     "hero": {

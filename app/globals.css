@@ -43,3 +43,59 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+
+/* Blog MDX typography */
+.blog-prose {
+  color: var(--text);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+.blog-prose > * + * { margin-top: 1.25em; }
+.blog-prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  color: var(--text);
+}
+.blog-prose h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+}
+.blog-prose p { color: var(--text); }
+.blog-prose a { color: var(--brand-color); text-decoration: underline; }
+.blog-prose ul, .blog-prose ol {
+  padding-left: 1.4em;
+  color: var(--text);
+}
+.blog-prose li + li { margin-top: 0.35em; }
+.blog-prose strong { font-weight: 650; }
+.blog-prose code {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.9em;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  padding: 0.1em 0.35em;
+}
+.blog-prose pre {
+  background: #111827;
+  color: #f9fafb;
+  border-radius: 0.75rem;
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+}
+.blog-prose pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+.blog-prose blockquote {
+  border-left: 3px solid var(--brand-color);
+  padding-left: 1rem;
+  color: var(--text-muted);
+}
