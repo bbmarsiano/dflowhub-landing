@@ -1,6 +1,7 @@
 "use client";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
+import Logo from "./Logo";
 import type { Product } from "@/lib/product";
 
 interface Props {
@@ -17,12 +18,8 @@ export default function Footer({ activeProduct }: Props) {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div className="col-span-2 lg:col-span-1">
             <div className="mb-4">
-              <Link href={`/${locale}`}>
-                <img
-                  src="/logo.png"
-                  alt="DFlowHub"
-                  style={{ height: "28px", width: "auto" }}
-                />
+              <Link href={`/${locale}`} className="inline-flex">
+                <Logo product={activeProduct ?? "hub"} height={24} />
               </Link>
             </div>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)", maxWidth: "200px" }}>{t("tagline")}</p>
@@ -63,7 +60,7 @@ export default function Footer({ activeProduct }: Props) {
           </div>
           <div>
             <p className="text-xs font-bold uppercase tracking-wider mb-4" style={{ color: "var(--text)" }}>{t("contact")}</p>
-            <a href={`mailto:${t("sales")}`} className="text-sm transition-colors hover:underline" style={{ color: "var(--purple)" }}>{t("sales")}</a>
+            <a href={`mailto:${t("sales")}`} className="text-sm transition-colors hover:underline" style={{ color: "var(--brand-color)" }}>{t("sales")}</a>
           </div>
         </div>
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderTop: "1px solid var(--border)" }}>

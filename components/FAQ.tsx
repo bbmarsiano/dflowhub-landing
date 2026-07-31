@@ -12,7 +12,7 @@ export default function FAQ({ product }: { product: Product }) {
     <section id="faq" className="py-24" style={{ background: "var(--bg)" }}>
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-14">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4 px-3 py-1 rounded-full" style={{ color: "var(--purple)", background: "var(--purple-faint)" }}>
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4 px-3 py-1 rounded-full" style={{ color: "var(--brand-color)", background: "var(--brand-faint)" }}>
             {t("badge")}
           </span>
           <h2 className="text-3xl lg:text-4xl font-bold" style={{ color: "var(--text)", letterSpacing: "-0.025em" }}>
@@ -26,12 +26,12 @@ export default function FAQ({ product }: { product: Product }) {
                 className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left"
                 onClick={() => setOpen(open === i ? null : i)}
               >
-                <span className="text-sm font-semibold" style={{ color: open === i ? "var(--purple)" : "var(--text)" }}>
+                <span className="text-sm font-semibold" style={{ color: open === i ? "var(--brand-color)" : "var(--text)" }}>
                   {item.q}
                 </span>
                 <svg
                   viewBox="0 0 16 16" fill="none" className="w-4 h-4 flex-shrink-0 transition-transform"
-                  style={{ color: "var(--purple)", transform: open === i ? "rotate(180deg)" : "rotate(0deg)" }}
+                  style={{ color: "var(--brand-color)", transform: open === i ? "rotate(180deg)" : "rotate(0deg)" }}
                 >
                   <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>

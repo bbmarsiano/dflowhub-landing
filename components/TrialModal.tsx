@@ -79,8 +79,8 @@ export default function TrialModal({ open, onClose, product }: Props) {
 
         {status === "success" ? (
           <div className="text-center py-4">
-            <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: "var(--purple-faint)" }}>
-              <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7" style={{ color: "var(--purple)" }}>
+            <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: "var(--brand-faint)" }}>
+              <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7" style={{ color: "var(--brand-color)" }}>
                 <path d="M5 12l5 5L20 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
@@ -105,7 +105,7 @@ export default function TrialModal({ open, onClose, product }: Props) {
                   onKeyDown={(e) => { if (e.key === "Enter") handleSubmit(); }}
                   className="w-full h-11 px-4 rounded-xl text-sm outline-none"
                   style={{ border: "1px solid var(--border)", color: "var(--text)" }}
-                  onFocus={(e) => { e.target.style.borderColor = "var(--purple)"; e.target.style.boxShadow = "0 0 0 3px rgba(124,58,237,0.1)"; }}
+                  onFocus={(e) => { e.target.style.borderColor = "var(--brand-color)"; e.target.style.boxShadow = "0 0 0 3px var(--brand-ring)"; }}
                   onBlur={(e) => { e.target.style.borderColor = "var(--border)"; e.target.style.boxShadow = "none"; }}
                 />
               ))}
@@ -115,7 +115,7 @@ export default function TrialModal({ open, onClose, product }: Props) {
               onClick={handleSubmit}
               disabled={status === "loading" || !email || !name}
               className="mt-5 w-full h-11 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ background: "var(--purple)" }}
+              style={{ background: "var(--brand-color)" }}
             >
               {status === "loading" ? t("submitting") : t("submit")}
             </button>

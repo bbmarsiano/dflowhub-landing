@@ -21,13 +21,13 @@ export default async function CheckoutSuccessPage({
         <div className="w-full max-w-lg text-center">
           <div
             className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6"
-            style={{ background: "var(--purple-faint)" }}
+            style={{ background: "var(--brand-faint)" }}
           >
             <svg
               viewBox="0 0 24 24"
               fill="none"
               className="w-7 h-7"
-              style={{ color: "var(--purple)" }}
+              style={{ color: "var(--brand-color)" }}
             >
               <path
                 d="M5 12l5 5L20 7"
@@ -55,7 +55,7 @@ export default async function CheckoutSuccessPage({
           <Link
             href={`/${locale}`}
             className="inline-flex items-center h-11 px-6 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90"
-            style={{ background: "var(--purple)" }}
+            style={{ background: "var(--brand-color)" }}
           >
             {t("backHome")}
           </Link>

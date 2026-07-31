@@ -3,6 +3,7 @@ import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { PRODUCTS } from "@/lib/brand";
 
 export default function HubPage() {
   const t = useTranslations("hub");
@@ -21,7 +22,7 @@ export default function HubPage() {
           <div className="text-center mb-14">
             <span
               className="inline-block text-xs font-semibold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-              style={{ color: "var(--purple)", background: "var(--purple-faint)" }}
+              style={{ color: "var(--text-muted)", background: "var(--surface)", border: "1px solid var(--border)" }}
             >
               {t("badge")}
             </span>
@@ -51,18 +52,26 @@ export default function HubPage() {
                   boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
                 }}
               >
-                <p
-                  className="text-xs font-bold uppercase tracking-wider mb-3"
-                  style={{ color: "var(--purple)" }}
-                >
-                  {t(`${key}.name`)}
-                </p>
+                <div className="flex items-center gap-2.5 mb-3">
+                  <img
+                    src={PRODUCTS[key].icon}
+                    alt=""
+                    aria-hidden
+                    style={{ height: 28, width: 28, objectFit: "contain" }}
+                  />
+                  <p
+                    className="text-xs font-bold uppercase tracking-wider"
+                    style={{ color: PRODUCTS[key].color }}
+                  >
+                    {t(`${key}.name`)}
+                  </p>
+                </div>
                 <p className="text-base leading-relaxed mb-6" style={{ color: "var(--text-muted)" }}>
                   {t(`${key}.pitch`)}
                 </p>
                 <span
                   className="text-sm font-semibold transition-opacity group-hover:opacity-80"
-                  style={{ color: "var(--purple)" }}
+                  style={{ color: PRODUCTS[key].color }}
                 >
                   {t(`${key}.cta`)}
                 </span>

@@ -143,8 +143,8 @@ export default function CheckoutModal({ product, billingType, open, onClose }: P
             className="w-full h-11 px-4 rounded-xl text-sm outline-none"
             style={{ border: "1px solid var(--border)", color: "var(--text)" }}
             onFocus={(e) => {
-              e.target.style.borderColor = "var(--purple)";
-              e.target.style.boxShadow = "0 0 0 3px rgba(124,58,237,0.1)";
+              e.target.style.borderColor = "var(--brand-color)";
+              e.target.style.boxShadow = "0 0 0 3px var(--brand-ring)";
             }}
             onBlur={(e) => {
               e.target.style.borderColor = "var(--border)";
@@ -162,8 +162,8 @@ export default function CheckoutModal({ product, billingType, open, onClose }: P
             className="w-full h-11 px-4 rounded-xl text-sm outline-none"
             style={{ border: "1px solid var(--border)", color: "var(--text)" }}
             onFocus={(e) => {
-              e.target.style.borderColor = "var(--purple)";
-              e.target.style.boxShadow = "0 0 0 3px rgba(124,58,237,0.1)";
+              e.target.style.borderColor = "var(--brand-color)";
+              e.target.style.boxShadow = "0 0 0 3px var(--brand-ring)";
             }}
             onBlur={(e) => {
               e.target.style.borderColor = "var(--border)";
@@ -180,7 +180,7 @@ export default function CheckoutModal({ product, billingType, open, onClose }: P
           onClick={handleSubmit}
           disabled={status === "loading" || !tenantName.trim() || !email.trim()}
           className="mt-5 w-full h-11 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
-          style={{ background: "var(--purple)" }}
+          style={{ background: "var(--brand-color)" }}
         >
           {status === "loading" ? t("submitting") : t("submit")}
         </button>

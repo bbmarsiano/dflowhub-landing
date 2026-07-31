@@ -5,6 +5,7 @@ import Link from "next/link";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ProductSwitcher from "./ProductSwitcher";
 import TrialModal from "./TrialModal";
+import Logo from "./Logo";
 import type { Product } from "@/lib/product";
 
 interface Props {
@@ -35,11 +36,7 @@ export default function Nav({ activeProduct }: Props) {
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href={`/${locale}`} className="flex items-center">
-            <img
-              src="/logo.png"
-              alt="DFlowHub"
-              style={{ height: "32px", width: "auto" }}
-            />
+            <Logo product={activeProduct ?? "hub"} />
           </Link>
           <div className="flex items-center gap-4 sm:gap-6">
             {activeProduct && <ProductSwitcher active={activeProduct} />}
@@ -48,7 +45,7 @@ export default function Nav({ activeProduct }: Props) {
               <button
                 onClick={() => setModalOpen(true)}
                 className="hidden sm:flex items-center h-9 px-4 rounded-lg text-sm font-medium text-white transition-all hover:opacity-90 active:scale-95"
-                style={{ background: "var(--purple)" }}
+                style={{ background: "var(--brand-color)" }}
               >
                 {t("cta")}
               </button>

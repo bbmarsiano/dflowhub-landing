@@ -23,7 +23,7 @@ export default function ProductSwitcher({ active }: { active: Product }) {
             className="px-3 py-1.5 rounded-md transition-colors"
             style={{
               background: isActive ? "white" : "transparent",
-              color: isActive ? "var(--purple)" : "var(--text-muted)",
+              color: isActive ? "var(--brand-color)" : "var(--text-muted)",
               boxShadow: isActive ? "0 1px 2px rgba(0,0,0,0.06)" : "none",
             }}
           >

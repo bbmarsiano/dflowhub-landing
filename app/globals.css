@@ -1,10 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --purple: #7c3aed;
-  --purple-light: #8b5cf6;
-  --purple-dim: #ede9fe;
-  --purple-faint: #f5f3ff;
+  /* Neutral default — hub / shared pages (not product-themed) */
+  --brand-color: #111827;
+  --brand-dim: color-mix(in srgb, var(--brand-color) 14%, white);
+  --brand-faint: color-mix(in srgb, var(--brand-color) 7%, white);
+  --brand-soft: color-mix(in srgb, var(--brand-color) 55%, white);
+  --brand-muted: color-mix(in srgb, var(--brand-color) 35%, white);
+  --brand-on-brand: color-mix(in srgb, var(--brand-color) 18%, white);
+  --brand-ring: color-mix(in srgb, var(--brand-color) 12%, transparent);
+
+  /* Back-compat aliases used during migration */
+  --purple: var(--brand-color);
+  --purple-light: var(--brand-soft);
+  --purple-dim: var(--brand-dim);
+  --purple-faint: var(--brand-faint);
+
   --bg: #ffffff;
   --surface: #f9fafb;
   --border: #e5e7eb;
@@ -16,6 +27,7 @@
 @theme inline {
   --color-background: var(--bg);
   --color-foreground: var(--text);
+  --color-brand: var(--brand-color);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

@@ -41,7 +41,7 @@ export default function Pricing({ product }: { product: Product }) {
           <div className="text-center mb-16">
             <span
               className="inline-block text-xs font-semibold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
-              style={{ color: "var(--purple)", background: "var(--purple-faint)" }}
+              style={{ color: "var(--brand-color)", background: "var(--brand-faint)" }}
             >
               {t("badge")}
             </span>
@@ -63,10 +63,10 @@ export default function Pricing({ product }: { product: Product }) {
                   key={key}
                   className="relative rounded-2xl p-6 flex flex-col"
                   style={{
-                    background: featured ? "var(--purple)" : "white",
-                    border: `1px solid ${featured ? "var(--purple)" : "var(--border)"}`,
+                    background: featured ? "var(--brand-color)" : "white",
+                    border: `1px solid ${featured ? "var(--brand-color)" : "var(--border)"}`,
                     boxShadow: featured
-                      ? "0 20px 40px rgba(124,58,237,0.2)"
+                      ? "0 20px 40px color-mix(in srgb, var(--brand-color) 25%, transparent)"
                       : "0 1px 3px rgba(0,0,0,0.04)",
                   }}
                 >
@@ -75,8 +75,8 @@ export default function Pricing({ product }: { product: Product }) {
                       className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap"
                       style={{
                         background: "white",
-                        color: "var(--purple)",
-                        boxShadow: "0 2px 8px rgba(124,58,237,0.2)",
+                        color: "var(--brand-color)",
+                        boxShadow: "0 2px 8px color-mix(in srgb, var(--brand-color) 20%, transparent)",
                       }}
                     >
                       {t("plans.annual.badge")}
@@ -85,7 +85,7 @@ export default function Pricing({ product }: { product: Product }) {
                   <div className="mb-5">
                     <p
                       className="text-xs font-bold uppercase tracking-wider mb-3"
-                      style={{ color: featured ? "#a78bfa" : "var(--purple)" }}
+                      style={{ color: featured ? "var(--brand-soft)" : "var(--brand-color)" }}
                     >
                       {t(`plans.${key}.name`)}
                     </p>
@@ -101,14 +101,14 @@ export default function Pricing({ product }: { product: Product }) {
                       </span>
                       <span
                         className="text-sm"
-                        style={{ color: featured ? "#c4b5fd" : "var(--text-muted)" }}
+                        style={{ color: featured ? "var(--brand-muted)" : "var(--text-muted)" }}
                       >
                         {t(`plans.${key}.period`)}
                       </span>
                     </div>
                     <p
                       className="text-sm"
-                      style={{ color: featured ? "#c4b5fd" : "var(--text-muted)" }}
+                      style={{ color: featured ? "var(--brand-muted)" : "var(--text-muted)" }}
                     >
                       {t(`plans.${key}.desc`)}
                     </p>
@@ -118,9 +118,9 @@ export default function Pricing({ product }: { product: Product }) {
                       <li
                         key={i}
                         className="flex items-center gap-2 text-sm"
-                        style={{ color: featured ? "#ede9fe" : "var(--text)" }}
+                        style={{ color: featured ? "var(--brand-dim)" : "var(--text)" }}
                       >
-                        <span style={{ color: featured ? "#a78bfa" : "var(--purple)" }}>
+                        <span style={{ color: featured ? "var(--brand-soft)" : "var(--brand-color)" }}>
                           <Check />
                         </span>
                         {f}
@@ -132,9 +132,9 @@ export default function Pricing({ product }: { product: Product }) {
                       onClick={() => setTrialOpen(true)}
                       className="w-full h-10 rounded-xl text-sm font-semibold transition-all hover:opacity-90 active:scale-95"
                       style={{
-                        background: "var(--purple-faint)",
-                        color: "var(--purple)",
-                        border: "1px solid var(--purple-dim)",
+                        background: "var(--brand-faint)",
+                        color: "var(--brand-color)",
+                        border: "1px solid var(--brand-dim)",
                       }}
                     >
                       {t(`plans.${key}.cta`)}
@@ -145,8 +145,8 @@ export default function Pricing({ product }: { product: Product }) {
                       className="w-full h-10 rounded-xl text-sm font-semibold transition-all hover:opacity-90 active:scale-95"
                       style={
                         featured
-                          ? { background: "white", color: "var(--purple)" }
-                          : { background: "var(--purple)", color: "white" }
+                          ? { background: "white", color: "var(--brand-color)" }
+                          : { background: "var(--brand-color)", color: "white" }
                       }
                     >
                       {t(`plans.${key}.cta`)}
