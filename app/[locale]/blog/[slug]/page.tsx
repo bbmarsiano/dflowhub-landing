@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import Nav from "@/components/Nav";
@@ -109,6 +110,17 @@ export default async function BlogPostPage({
             <p className="text-lg" style={{ color: "var(--text-muted)" }}>
               {post.description}
             </p>
+          </div>
+
+          <div className="relative w-full aspect-[1200/630] overflow-hidden rounded-2xl mb-10" style={{ border: "1px solid var(--border)" }}>
+            <Image
+              src={post.coverImage}
+              alt={post.title}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+            />
           </div>
 
           <MdxContent source={post.content} />

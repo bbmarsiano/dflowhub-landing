@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { BlogPost } from "@/lib/blog";
 import ProductBadge from "./ProductBadge";
@@ -27,14 +28,13 @@ export default function BlogCard({
         boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
       }}
     >
-      <div
-        className="h-40 flex items-center justify-center"
-        style={{ background: "var(--surface)" }}
-      >
-        <img
+      <div className="relative w-full aspect-[1200/630] overflow-hidden bg-[var(--surface)]">
+        <Image
           src={post.coverImage}
-          alt=""
-          className="h-16 w-16 object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+          alt={post.title}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
         />
       </div>
       <div className="p-6 flex flex-col flex-1">
