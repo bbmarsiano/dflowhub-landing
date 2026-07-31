@@ -99,3 +99,12 @@ body {
   padding-left: 1rem;
   color: var(--text-muted);
 }
+
+/* Markdown wraps lone images in <p>; unwrap so <figure> is valid block-level */
+.blog-prose p:has(> .blog-figure) {
+  display: contents;
+}
+.blog-prose .blog-figure {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
